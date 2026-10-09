@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#11100e">
+  <meta name="description" content="A premium restaurant ordering experience.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>NOIR & GOLD | Restaurant</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Noir and Gold home">
+        <span class="brand-mark">N<span>G</span></span>
+        <span class="brand-copy"><strong>NOIR <i>&</i> GOLD</strong><small>DINING EXPERIENCE</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="open-pill"><span class="live-dot"></span> OPEN TODAY</span>
+        <button class="icon-button cart-jump" id="cartJump" aria-label="Jump to cart">Bag <span id="headerCount">0</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow"><span></span> THE ART OF GOOD TASTE</p>
+          <h1>Exceptional food.<br><em>Unforgettable</em> moments.</h1>
+          <p class="hero-description">Thoughtfully prepared favorites, made for your table. Explore the menu and place your order below.</p>
+          <a href="#menu" class="gold-button">EXPLORE THE MENU <span>↘</span></a>
+        </div>
+        <div class="hero-art" role="img" aria-label="Elegant abstract gold dining illustration">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="plate"><div class="plate-inner"></div><div class="plate-food"></div><span class="leaf leaf-one"></span><span class="leaf leaf-two"></span></div>
+          <div class="art-label">CRAFTED<br>WITH CARE <span>✦</span></div>
+          <div class="art-number">01 <span>/</span> 05</div>
+        </div>
+        <div class="hero-footer"><span>01 — SIGNATURE SELECTION</span><span>FRESHLY PREPARED DAILY</span></div>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span> OUR KITCHEN</p><h2>Curated <em>menu</em></h2></div>
+          <p class="section-note">Simple ingredients. Beautifully<br>made. Always satisfying.</p>
+        </div>
+        <div class="category-row" id="categories">
+          <button class="category active" data-category="All">All selections</button>
+          <button class="category" data-category="Mains">Mains</button>
+          <button class="category" data-category="Pasta">Pasta</button>
+          <button class="category" data-category="Sides">Sides</button>
+          <button class="category" data-category="Drinks">Drinks</button>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </section>
+
+      <section class="order-section" id="order">
+        <div class="order-main">
+          <p class="eyebrow"><span></span> YOUR SELECTION</p>
+          <h2>Your <em>order</em></h2>
+          <p class="muted">Review your items and adjust quantities before checkout.</p>
+          <div id="cartItems" class="cart-items"><div class="empty-cart">Your bag is waiting for something delicious.</div></div>
+        </div>
+        <aside class="summary-card">
+          <p class="eyebrow">ORDER SUMMARY</p>
+          <div class="summary-line"><span>Subtotal</span><strong id="subtotal">₱0.00</strong></div>
+          <div class="summary-line"><span>Discount <small id="discountHint">— 10% at ₱500</small></span><strong id="discount">−₱0.00</strong></div>
+          <div class="discount-track"><span id="discountProgress"></span></div>
+          <p class="discount-message" id="discountMessage">Add ₱500.00 to unlock 10% off.</p>
+          <div class="summary-total"><span>Total due</span><strong id="total">₱0.00</strong></div>
+          <button class="gold-button checkout-button" id="checkoutButton">CREATE DIGITAL RECEIPT <span>↗</span></button>
+          <p class="secure-note">✦ No payment is collected in this demo.</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer"><a class="brand footer-brand" href="#"><span class="brand-mark">N<span>G</span></span><span class="brand-copy"><strong>NOIR <i>& GOLD</i></strong><small>DINING EXPERIENCE</small></span></a><span>GOOD FOOD. GREAT COMPANY.</span><span>© <span id="year"></span> NOIR & GOLD</span></footer>
+  </div>
+
+  <div class="modal-backdrop" id="receiptModal" aria-hidden="true">
+    <section class="receipt-modal" role="dialog" aria-modal="true" aria-labelledby="receiptTitle">
+      <button class="modal-close" id="closeReceipt" aria-label="Close receipt">×</button>
+      <div class="receipt-logo">N<span>G</span></div>
+      <p class="eyebrow centered">NOIR & GOLD · DINING</p>
+      <h2 id="receiptTitle">Your <em>receipt</em></h2>
+      <p class="receipt-number" id="receiptNumber"></p>
+      <div id="receiptLines" class="receipt-lines"></div>
+      <div class="receipt-totals" id="receiptTotals"></div>
+      <p class="receipt-thanks">Thank you for choosing us.<br><span>We hope to see you again soon.</span></p>
+      <div class="receipt-actions"><button class="gold-button" id="printReceipt">PRINT / SAVE PDF ↗</button><button class="outline-button" id="newOrder">START A NEW ORDER</button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
